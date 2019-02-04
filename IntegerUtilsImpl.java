@@ -9,7 +9,7 @@ public class IntegerUtilsImpl implements IntegerUtils_Laursen {
 		int k = 98;
 		int m = 9;
 		int n = 12;
-		int[] intArray = {45, 41};
+		int[] intArray = {39, 41};
 
 		isEven(k);
 		isOdd(k);
@@ -17,6 +17,7 @@ public class IntegerUtilsImpl implements IntegerUtils_Laursen {
 		greatestCommonFactor(m, n);
 		isSorted(intArray);
 		reverse(k);
+		getMinimum(intArray);
     }
 	
     Scanner console = new Scanner(System.in);
@@ -132,7 +133,7 @@ public class IntegerUtilsImpl implements IntegerUtils_Laursen {
 		return 0;
 	}
 
-	int getMaximum() {
+	public static int getMaximum() {
 		//Math.max(arg0, arg1)
 		//corner case would be one integer in the array
 		//example: ({2,4,6,8,10}) = 10
@@ -140,14 +141,22 @@ public class IntegerUtilsImpl implements IntegerUtils_Laursen {
 		return 0;
 	}
 	
-	int getMinimum() {
+	public static int getMinimum(int []array) {
+		System.out.println("Results of the 'getMinimum' method: ");
 		//corner case would be one integer in the array
-		int min = intArray[0];
-		for (int i=0; i < intArray.length; i++) {
-			if(intArray[i]<min) {
-				min = intArray[i];
+		int min = array[0];
+		if(array.length == 1) {
+			System.out.println("Corner Case");
+			return min;
+		}
+		for (int i=0; i < array.length; i++) {
+			if(array[i] < min) {
+				min = array[i];
+				System.out.println(min);
 			}
 		}
+		System.out.println("Middle of the road");
+		System.out.println(min);
 		return min;
 	}
 	
