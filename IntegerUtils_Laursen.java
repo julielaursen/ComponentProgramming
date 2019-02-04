@@ -36,7 +36,7 @@ public interface IntegerUtils_Laursen {
 	
 	public static boolean isPrime(int k)
 	{
-		throw new RuntimeException("Not implemented!");
+		return false;
 	}
 	
 	public static int greatestCommonFactor(int m, int n)
