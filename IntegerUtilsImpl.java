@@ -12,6 +12,7 @@ public class IntegerUtilsImpl implements IntegerUtils_Laursen {
 
 	public static void main(String[] a){ 
 		int k = 98;
+		long kk= 29;
 		int l = 0;
 		int p = -2;
 		int q = 1;
@@ -47,7 +48,8 @@ public class IntegerUtilsImpl implements IntegerUtils_Laursen {
 //		getMinimum(intArray);
 //		getSmallestIndexofMatch(intArray, target); 
 //		getIntegerH(firstnum, secondnum);
-		getMaximum(set);
+	//	getMaximum(set);
+		getSumthing(kk);
     }
 	
     Scanner console = new Scanner(System.in);
@@ -195,6 +197,8 @@ public class IntegerUtilsImpl implements IntegerUtils_Laursen {
 		}
 		return 0;
 		
+		//if size = 1 corner case
+		//if size = 0;
 	}
 	
 	public static int getMinimum(int []array) {
@@ -287,19 +291,33 @@ public class IntegerUtilsImpl implements IntegerUtils_Laursen {
 		return reversedNum;
 	}
 	
-	int sumthing(long k) {
+	public static long getSumthing(long kk) {
 		//takes the sum of all the digits in the integer
 		//takes the sum of those digits
 		//ex) 29 = 2 + 9 = 11 = 1 + 1 = 2
 		//sumthing(7) -> 7
 		//sumthing(14) -> 5
 		//sumthing(29) -> 2
-		int m = 0;
 		
-		while(k > 0) {
-			//do something
-		}
-		return 0;
-	}
+//		if(kk > 0) {
+//			System.out.println(kk);
+//			long x = kk/10;
+//			System.out.println(x);
+//			long y = kk%10;
+//			System.out.println(y);
+//			long z = x + y;
+//		}
+		String kstring = Long.toString(kk);
+		
+        long sum = 0;
+         while (kk > 0 && kstring.length() > 1) {
+        	sum = sum + kk % 10; //9
+            kk = kk / 10; //2
+            System.out.println(kk);
+        }
+
+        System.out.print("answer" + sum);
+        return kk;
+      	}
 }
 
