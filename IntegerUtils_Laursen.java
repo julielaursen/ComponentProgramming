@@ -78,6 +78,7 @@ public interface IntegerUtils_Laursen {
 		getSumthing(291);
 		getSumthing(12);
 		getSumthing(8);
+		getSumthing(0);
     }
 	
     Scanner console = new Scanner(System.in);
