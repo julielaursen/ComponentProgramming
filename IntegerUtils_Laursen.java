@@ -25,26 +25,11 @@ public interface IntegerUtils_Laursen {
 	
 
 	public static void main(String[] a){ 
-		int k = 98;
-		long kk= 8;
-		int l = 0;
-		int p = -2;
-		int q = 1;
-		int r = -1;
-		int s = 5;
-		int t = 2;
-		int m = 9;
-		int n = 12;
-		int o = 4;
+		
 		int[] intArray = {39, 41, 41, 45};
 		int[] intArray2 = {41};
 		int[] intArray3 = {2, 2, 2, 2};
 		int target = 41;
-		int b = 7;
-		int c = 50;
-		int d = 10;
-		int firstnum = 9;
-		int secondnum = 4;
 		Integer arr[] = {2,4,6,8,10};
 		Set<Integer> set = new HashSet<>(Arrays.asList(arr));
 		Integer arr2[] = {2};
@@ -52,26 +37,31 @@ public interface IntegerUtils_Laursen {
 		Integer arr3[] = {2,2,2};
 		Set<Integer> set3 = new HashSet<>(Arrays.asList(arr3));
 		
-		isEven(k);
-		isEven(l);
-		isEven(p);
-		isOdd(s);
-		isOdd(q);
-		isOdd(r);
-		isPrime(s);
-		isPrime(t);
-		isPrime(q);
-		greatestCommonFactor(m, n);
-		greatestCommonFactor(q, r);
-		greatestCommonFactor(l, l);
-		getGreatestConstrainedMultiple(b, c);
-		getGreatestConstrainedMultiple(t, o);
-		getGreatestConstrainedMultiple(l, q);
+		isEven(98);
+		isEven(0);
+		isEven(-2);
+		isOdd(5);
+		isOdd(1);
+		isOdd(-1);
+		isPrime(5);
+		isPrime(2);
+		isPrime(1);
+		isPrime(0);
+		greatestCommonFactor(9, 12);
+		greatestCommonFactor(1, -1);
+		greatestCommonFactor(3, 3);
+		greatestCommonFactor(0, 0);
+		getGreatestConstrainedMultiple(7, 50);
+		getGreatestConstrainedMultiple(50, 50);
+		getGreatestConstrainedMultiple(2, 4);
+		getGreatestConstrainedMultiple(0, 1);
+		getGreatestConstrainedMultiple(0, 0);
 		isSorted(intArray);
 		isSorted(intArray2);
-		reverse(k);
-		reverse(s);
-		reverse(d);
+		reverse(98);
+		reverse(5);
+		reverse(10);
+		reverse(1234);
 		getMinimum(intArray);
 		getMinimum(intArray2);
 		getMinimum(intArray3);
@@ -80,8 +70,14 @@ public interface IntegerUtils_Laursen {
 		getMaximum(set3);
 		getSmallestIndexofMatch(intArray, target); 
 		getSmallestIndexofMatch(intArray2, target);
-		getIntegerH(firstnum, secondnum);
-		getSumthing(kk);
+		getIntegerH(9, 4);
+		getIntegerH(20, 1);
+		getIntegerH(9, 9);
+		getIntegerH(9, 1);
+		getIntegerH(0, 0);
+		getSumthing(291);
+		getSumthing(12);
+		getSumthing(8);
     }
 	
     Scanner console = new Scanner(System.in);
@@ -170,15 +166,18 @@ public interface IntegerUtils_Laursen {
         	gcd = m % n;
             System.out.println("Number " + gcd + " Middle of the road");
         }       
+        else if(m == n) {
+        	gcd = m;
+        	System.out.println("Number " + gcd + " Middle of the road");
+        }
         return gcd;
 	}
 	
 	public static int getGreatestConstrainedMultiple(int n, int m) {
 		System.out.println("The result of the greatest constrainted multiple method: ");
 		int counter = 0;
-		for(int i = 0; i < m; i++) {
-			if ((n * i) < m) {
-				//store n * i in a temp variable
+		for(int i = 0; i <= m; i++) {
+			if ((n * i) <= m) {
 				counter = n * i;
 			}
 		}
@@ -219,35 +218,30 @@ public interface IntegerUtils_Laursen {
 	public static int reverse(int k) {
 		System.out.println("Results of the reverse method: ");
 		int reversedNum = 0;
-	      //System.out.println("Enter an integer to reverse");
-	      //Scanner in = new Scanner(System.in);
-	      //k = in.nextInt();
-	      if(k != 0)
-	      {
-	    	  if (k == 10) {
-	  			System.out.println("Corner case");
-	  			return k;
-	  		}
-	    	  if (k > 0 && k < 10) {
-	    		  System.out.println("One digit. Degenerate case");
-	    		  return k;
-	    	  }
-	    	  else {
-	    		  //this code is wrong, needs to be redone
-	    		    for (int i = k; i !=0; i /= 10) {
-	    		    	reversedNum = reversedNum * 10 + i % 10;
-	    		    }
-	          System.out.println(reversedNum);
-	  		  return reversedNum;
-	    	  }
-	      }
+		if (k != 0) {
+			if (k == 10) {
+				reversedNum = reversedNum * 10 + 10 % 10;
+				System.out.println("Number " + k + " Corner case");
+				return k;
+			}
+			if (k > 0 && k < 10) {
+				System.out.println("One digit. Degenerate case");
+				return k;
+			} else {
+				for (int i = k; i != 0; i /= 10) {
+					reversedNum = reversedNum * 10 + i % 10;
+				}
+				System.out.println(reversedNum);
+				return reversedNum;
+			}
+		}
+
 		return reversedNum;
 	}
 	
 	
 	public static int getMinimum(int []array) {
 		System.out.println("Results of the 'getMinimum' method: ");
-		//corner case would be one integer in the array
 		int min = array[0];
 		if(array.length == 1) {
 			System.out.println("One index array, Corner Case");
@@ -260,27 +254,28 @@ public interface IntegerUtils_Laursen {
 			}
 		}
 		System.out.println("Number " + min + " = Middle of the road");
-		//includes minimum where an array looks like {2, 2, 2, 2}
 		return min;
 	}
 	
 	public static int getIntegerH(int x, int y) {
 		System.out.println("The result of the getIntegerH method:");
+		boolean flag = true;
+
 		int n = x * 4;  //36
 		int m = x * 3; //27
-		for(int i = m; i < n; i++) {
+		if (x == y) {
+			flag = true;
+		}
+			for (int i = m; i < n; i++) {
 				if(i % 5 == y && i / 3 == x) {
 					System.out.println(i);
-				}		
+					flag = false;
+				}
+			}
+			if (flag == true) {
+				System.out.println("No such number");
 		}
-		//integer H example: (9, 4) = 29
-		//(20, 1) = 61
-		//(0,0) = 0
-		//the first digit is the number that 29 can be divided int
-		//Math.max(arg0, arg1)
-		//corner case would be one integer in the array
-		//example: ({2,4,6,8,10}) = 10
-		//example: (1, 17, 22, 48, 19) = 48
+		
 		return 0;
 	}
 	
@@ -299,11 +294,8 @@ public interface IntegerUtils_Laursen {
 	
 	public static int getSmallestIndexofMatch(int[] intArray, int target) {
 		System.out.println("Results of the 'getSmallestIndexOfMatch' method: ");
-		// get smallest index that matches a number
-		//ex) [2, 4, 6, 8, 10], 6 -> 2
-		//ex) [2, 2, 2, 2, 2], 2 -> 0
- 		
-		if(intArray.length == 1) { //and number is in that array
+	
+		if(intArray.length == 1) { 
 			System.out.println("Corner Case, length of one");
 			return target;
 		}
@@ -321,6 +313,7 @@ public interface IntegerUtils_Laursen {
 		if(kk < 10) {
         	System.out.println("Number " + kk + " Corner Case");
         } 
+		if(kk > 10) {
 		while (kk > 9) {
             long sum = 0;
         	sum = sum + kk % 10; //9
@@ -329,8 +322,9 @@ public interface IntegerUtils_Laursen {
         }
 		 
         System.out.println("Middle of the road case: " + kk);
-        return kk;
       	}
+		return kk;
+	}
 }
 
 
