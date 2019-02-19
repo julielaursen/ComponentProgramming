@@ -1,40 +1,70 @@
 package dominos;
 
+import java.util.Iterator;
 import java.util.List;
 
-public class DominoLowDifferenceStringImpl_Skeleton implements Domino {
+public class DominoLowDifferenceStringImpl_Skeleton extends DominoBase {
 	
 	private String lowDifferenceString;
+	public int sum;
 	private static final char LOW_DIFFERENCE_DELIMITER = '*';
-	
-	//pre
-	//post
-	//changed from integer to string- ask Dr kart about this
-	public DominoLowDifferenceStringImpl_Skeleton(String lowPlus8TimesHigh)
-	{
-		throw new RuntimeException("Not implemented");
-	}
-	
 	public static final int INDEX_OF_HIGH = 0;
 	public static final int INDEX_OF_SUM = 1;
+	private final String pipCountString;
+
+
 	
-	//pre
-	//post
+	public DominoLowDifferenceStringImpl_Skeleton(String lowPlus8TimesHighString)
+	{
+		int lowPlus8TimesHigh = 0;
+		assert lowPlus8TimesHighString != null:"Null cannot be passed in";
+		try {
+			lowPlus8TimesHigh = Integer.parseInt(lowPlus8TimesHighString);
+		}catch(NumberFormatException e) {
+			assert false:"Bad number";
+		}
+		assert isLowPlus8TimesHighInteger(lowPlus8TimesHigh):"Does not meet lowPipCount + (8*highPipCount)";
+		highPipCount = Math.abs(lowPlus8TimesHigh / 8);
+		lowPipCount = Math.abs(lowPlus8TimesHigh % 8);
+		pipCountString = "" + highPipCount + lowPipCount;
+		validateHighLow();
+		
+	}
+	
+	public boolean isLowPlus8TimesHighInteger(int lowPlus8TimesHigh) {
+		if(lowPlus8TimesHigh < 0) {
+			return false;
+		}
+		if(lowPlus8TimesHigh > 54) {
+			return false;
+		}
+		return true;
+	}
+	
 	public DominoLowDifferenceStringImpl_Skeleton(List<Integer> highSum)
 	{
-		throw new RuntimeException("Not implemented");
-	}
+		assert highSum != null;
+		assert (highSum.size() == 2);
+		Iterator<Integer>  itr = highSum.iterator();
+		Integer i = itr.next();
+		Integer j = itr.next();
+		if(i > j) {
+			sum = i;
+			highPipCount = j;
+		}
+		else if(i == j) {
+			sum = i + j;
+			highPipCount = j;
+		}
+		else {
+			sum = j;
+			highPipCount = i;
+		}
+		lowPipCount = sum - highPipCount;	
+		pipCountString = "" + highPipCount + lowPipCount;
+		validateHighLow();
+		System.out.println(highSum + " is a valid input, lowPipCount is " + lowPipCount);
 
-	@Override
-	public int getHighPipCount() {
-		// TODO Auto-generated method stub
-		return 0;
+	//}
 	}
-
-	@Override
-	public int getLowPipCount() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }

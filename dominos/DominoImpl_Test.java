@@ -1,73 +1,348 @@
 package dominos;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
-public class DominoImpl_Test  {
+public class DominoImpl_Test {
 
-	private DominoHighLowImpl_Skeleton generator = new DominoHighLowImpl_Skeleton(6, 4);
-	
+	//private DominoHighLowImpl_Skeleton generator = new DominoHighLowImpl_Skeleton(6, 4);
+
 	public static void main(String args[]) {
 		Domino domino = null;
-		isHighLowString("6:2");
-		isHighLowString("9:2");
-		isHighLowString("2:9");
-		isHighLowString("2:4");
-		isHighLowString("3:3");
-		isHighLowString("0:0");
-		isHighLowString("0,0");
-		isHighLowString("x: 3");
-		isHighLowString("2.1: 3");
-		isHighLowString("-1:-1");
-		isHighLowString("0 :0");
-		Domino dominoSet = new DominoHighLowImpl_Skeleton(new HashSet<Integer>(){{
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton("6:2");
+//			System.out.println("Domino created: " + dom.getHighPipCount() + " " + dom.getLowPipCount());
+//		} catch (Throwable e) {
+//			System.out.println(e.getMessage());
+//		}
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton("9:2");
+//			System.out.println("Domino created: " + dom.getHighPipCount() + " " + dom.getLowPipCount());
+//		} catch (Throwable e) {
+//			System.out.println(e.getMessage());
+//		}
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton("2:9");
+//			System.out.println("Domino created: " + dom.getHighPipCount() + " " + dom.getLowPipCount());
+//		} catch (Throwable e) {
+//			System.out.println(e.getMessage());
+//		}
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton("2:4");
+//			System.out.println("Domino created: " + dom.getHighPipCount() + " " + dom.getLowPipCount());
+//		} catch (Throwable e) {
+//			System.out.println(e.getMessage());
+//		}
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton("3:3");
+//			System.out.println("Domino created: " + dom.getHighPipCount() + " " + dom.getLowPipCount());
+//		} catch (Throwable e) {
+//			System.out.println(e.getMessage());
+//		}
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton("0:0");
+//			System.out.println("Domino created: " + dom.getHighPipCount() + " " + dom.getLowPipCount());
+//		} catch (Throwable e) {
+//			System.out.println(e.getMessage());
+//		}
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton("0,0");
+//			System.out.println("Domino created: " + dom.getHighPipCount() + " " + dom.getLowPipCount());
+//		} catch (Throwable e) {
+//			System.out.println(e.getMessage());
+//		}
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton("x:3");
+//			System.out.println("Domino created: " + dom.getHighPipCount() + " " + dom.getLowPipCount());
+//		} catch (Throwable e) {
+//			System.out.println(e.getMessage());
+//		}
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton("2.1:3");
+//			System.out.println("Domino created: " + dom.getHighPipCount() + " " + dom.getLowPipCount());
+//		} catch (Throwable e) {
+//			System.out.println(e.getMessage());
+//		}
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton("-1:-1");
+//			System.out.println("Domino created: " + dom.getHighPipCount() + " " + dom.getLowPipCount());
+//		} catch (Throwable e) {
+//			System.out.println(e.getMessage());
+//		}
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton("0:0");
+//			System.out.println("Domino created: " + dom.getHighPipCount() + " " + dom.getLowPipCount());
+//		} catch (Throwable e) {
+//			System.out.println(e.getMessage());
+//		}
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton(new int[] {10,-2});
+//			System.out.println("Domino created: " + dom.getHighPipCount() + " " + dom.getLowPipCount());
+//		} catch (Throwable e) {
+//			System.out.println(e.getMessage());
+//		}
+//
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton(new int[] { 6, 0 });
+//			System.out.println("Domino created: " + dom.getHighPipCount() + " " + dom.getLowPipCount());
+//		} catch (Throwable e) {
+//			System.out.println(e.getMessage());
+//		}
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton(new int[] { 3, 3 });
+//			System.out.println("Domino created: " + dom.getHighPipCount() + " " + dom.getLowPipCount());
+//		} catch (Throwable e) {
+//			System.out.println(e.getMessage());
+//		}
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton(new int[] { -9, 0 });
+//			System.out.println("Domino created: " + dom.getHighPipCount() + " " + dom.getLowPipCount());
+//		} catch (Throwable e) {
+//			System.out.println("Error = " + e.getMessage());
+//		}
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton(new int[] { 0, 0 });
+//			System.out.println("Domino created: " + dom.getHighPipCount() + " " + dom.getLowPipCount());
+//		} catch (Throwable e) {
+//			System.out.println(e.getMessage());
+//		}
+//		try {
+//			Domino dom = new DominoHighLowImpl_Skeleton(new int[] { -1, 0 });
+//		} catch (Throwable e) {
+//			System.out.println("Error = " + e.getMessage());
+//		}
+		try {
+			Domino dominoSet = new DominoHighLowImpl_Skeleton(new ArrayList<Integer>() {
+				{
+					add(6);
+					add(4);
+				}
+			});
+		} catch (Throwable e) {
+			System.out.println("Error = " + e.getMessage());
+		}
+//
+//		try {
+//			Domino dominoSet = new DominoHighLowImpl_Skeleton(new ArrayList<Integer>() {
+//				{
+//					add(9);
+//					add(4);
+//				}
+//			});
+//		} catch (Throwable e) {
+//			System.out.println("Error = " + e.getMessage());
+//		}
+//
+//		try {
+//			Domino dominoSet = new DominoHighLowImpl_Skeleton(new ArrayList<Integer>() {
+//				{
+//					add(3);
+//					add(2);
+//				}
+//			});
+//		} catch (Throwable e) {
+//			System.out.println("Error = " + e.getMessage());
+//		}
+//		try {
+//			Domino dominoSet = new DominoHighLowImpl_Skeleton(new ArrayList<Integer>() {
+//				{
+//					add(5);
+//					add(2);
+//				}
+//			});
+//		} catch (Throwable e) {
+//			System.out.println("Error = " + e.getMessage());
+//		}
+//		try {
+//			new DominoHighLowImpl_Skeleton(new ArrayList<Integer>(){
+//			{
+//				add(0);
+//				add(0);
+//			}
+//		});
+//		}catch (Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//			e.printStackTrace();
+//		}
+//		try {
+//			Domino dominoSet = new DominoHighLowImpl_Skeleton(new ArrayList<Integer>() {
+//				{
+//					add(-1);
+//					add(1);
+//				}
+//			});
+//		} catch (Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//		}
+//		try {
+//			Domino dominoSet = new DominoHighLowSetImpl_Skeleton("2,1");
+//			System.out.println("Domino created: " + dominoSet.getHighPipCount() + " " + dominoSet.getLowPipCount());
+//		}
+//		catch(Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//		}
+//		try {
+//			Domino dominoSet = new DominoHighLowSetImpl_Skeleton("7,3");
+//			System.out.println("Domino created: " + dominoSet.getHighPipCount() + " " + dominoSet.getLowPipCount());
+//		}
+//		catch(Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//		}
+//		try {
+//			Domino dominoSet = new DominoHighLowSetImpl_Skeleton("10,-2");
+//			System.out.println("Domino created: " + dominoSet.getHighPipCount() + " " + dominoSet.getLowPipCount());
+//		}
+//		catch(Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//		}
+//		try {
+//			Domino domino2 = new DominoHighLowSetImpl_Skeleton(45);
+//			System.out.println("Domino created: " + domino2.getHighPipCount() + " " + domino2.getLowPipCount());
+//		}
+//		catch(Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//		}
+//		try {
+//			Domino domino2 = new DominoHighLowSetImpl_Skeleton(46);
+//			System.out.println("Domino created: " + domino2.getHighPipCount() + " " + domino2.getLowPipCount());
+//		}
+//		catch(Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//		}
+//		try {
+//			Domino domino2 = new DominoHighLowSetImpl_Skeleton(-45);
+//			System.out.println("Domino created: " + domino2.getHighPipCount() + " " + domino2.getLowPipCount());
+//		}
+//		catch(Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//		}
+//		try {
+//			Domino domino2 = new DominoHighLowSetImpl_Skeleton(0);
+//			System.out.println("Domino created: " + domino2.getHighPipCount() + " " + domino2.getLowPipCount());
+//		}
+//		catch(Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//		}
+//		try {
+//			Domino domino2 = new DominoHighLowSetImpl_Skeleton(54);
+//			System.out.println("Domino created: " + domino2.getHighPipCount() + " " + domino2.getLowPipCount());
+//		}
+//		catch(Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//		}
+//		try {
+//			Domino domino2 = new DominoHighLowSetImpl_Skeleton(55);
+//			System.out.println("Domino created: " + domino2.getHighPipCount() + " " + domino2.getLowPipCount());
+//		}
+//		catch(Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//		}
+//		try {
+//			Domino domino2 = new DominoLowDifferenceStringImpl_Skeleton("45");
+//			System.out.println("Domino created: " + domino2.getHighPipCount() + " " + domino2.getLowPipCount());
+//		}
+//		catch(Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//		}
+//		try {
+//			Domino domino2 = new DominoLowDifferenceStringImpl_Skeleton("46");
+//			System.out.println("Domino created: " + domino2.getHighPipCount() + " " + domino2.getLowPipCount());
+//		}
+//		catch(Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//		}
+//		try {
+//			Domino domino2 = new DominoLowDifferenceStringImpl_Skeleton("-45");
+//			System.out.println("Domino created: " + domino2.getHighPipCount() + " " + domino2.getLowPipCount());
+//		}
+//		catch(Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//		}
+//		try {
+//			Domino domino2 = new DominoLowDifferenceStringImpl_Skeleton("0");
+//			System.out.println("Domino created: " + domino2.getHighPipCount() + " " + domino2.getLowPipCount());
+//		}
+//		catch(Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//		}
+//		try {
+//			Domino domino2 = new DominoLowDifferenceStringImpl_Skeleton("54");
+//			System.out.println("Domino created: " + domino2.getHighPipCount() + " " + domino2.getLowPipCount());
+//		}
+//		catch(Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//		}
+//		try {
+//			Domino domino2 = new DominoLowDifferenceStringImpl_Skeleton("55");
+//			System.out.println("Domino created: " + domino2.getHighPipCount() + " " + domino2.getLowPipCount());
+//		}
+//		catch(Throwable e) {
+//			System.out.println("Error " + e.getMessage());
+//		}
+//}
+//
+//	
+		try {
+			Domino dominoSum = new DominoLowDifferenceStringImpl_Skeleton(new ArrayList<Integer>(){
+			{
+				add(6);
+				add(10);
+			}
+		});
+			} catch (Throwable e) {
+			System.out.println("Error = " + e.getMessage());
+		}
+		try {
+			Domino dominoSum = new DominoLowDifferenceStringImpl_Skeleton(new ArrayList<Integer>(){
+			{
+				add(5);
+				add(10);
+			}
+		});
+			} catch (Throwable e) {
+			System.out.println("Error = " + e.getMessage());
+		}
+	try {
+		Domino dominoSum = new DominoLowDifferenceStringImpl_Skeleton(new ArrayList<Integer>(){
+		{
 			add(6);
-			add(4);
-		}});
-		dominoSet = new DominoHighLowImpl_Skeleton(new HashSet<Integer>(){{
+			add(6);
+		}
+	});
+		} catch (Throwable e) {
+		System.out.println("Error = " + e.getMessage());
+	}
+
+	try {
+		Domino dominoSum = new DominoLowDifferenceStringImpl_Skeleton(new ArrayList<Integer>(){
+		{
+			add(0);
+			add(0);
+		}
+	});
+		} catch (Throwable e) {
+		System.out.println("Error = " + e.getMessage());
+	}
+	try {
+		Domino dominoSum = new DominoLowDifferenceStringImpl_Skeleton(new ArrayList<Integer>(){
+		{
 			add(9);
-			add(4);
-		}});
-
+			add(0);
+		}
+	});
+		} catch (Throwable e) {
+		System.out.println("Error = " + e.getMessage());
 	}
-	public static final String HIGH_LOW_STRING_SEPARATOR = ":";
-
-		
-	public static boolean isHighLowString(String str)
-	{
-		
-		String[] split = str.split(HIGH_LOW_STRING_SEPARATOR);
-		if(split.length != 2) {
-			System.out.println("Length of input is invalid: " + str);
-			return false;
+	try {
+		Domino dominoSum = new DominoLowDifferenceStringImpl_Skeleton(new ArrayList<Integer>(){
+		{
+			add(-1);
+			add(0);
 		}
-		int highPipCount; 
-		int lowPipCount; 
-
-		try{
-			
-			highPipCount = Integer.parseInt(split[0].trim());
-			lowPipCount = Integer.parseInt(split[1].trim());
-		}
-		catch(Exception e){
-			System.out.println(str + " :bad integer");
-			return false;
-		}
-		if(highPipCount >= lowPipCount) {
-			if(highPipCount > 6 || lowPipCount > 6) {
-				System.out.println(str + ": Invalid constructor. The range of numbers on a domino is 0-6");
-				return false;
-			}
-			if(highPipCount < 0 || lowPipCount < 0) {
-				System.out.println(str + ": Invalid constructor. The range of numbers on a domino is 0-6");
-				return false;
-			}
-			System.out.println(str + " is a valid input");
-			return true;
-		}
-		else {
-			System.out.println(str + ": High pip must be greater than or equal to low pip: invalid");
-			return false;
-		}
+	});
+		} catch (Throwable e) {
+		System.out.println("Error = " + e.getMessage());
 	}
-	
+
+}
 }
