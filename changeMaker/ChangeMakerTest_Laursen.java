@@ -6,9 +6,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import dominoes.Domino;
-import dominoes.DominoHighLowImpl_Laursen;
-
 
 public class ChangeMakerTest_Laursen {
 	

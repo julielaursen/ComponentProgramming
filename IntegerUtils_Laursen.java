@@ -12,7 +12,6 @@ Test middle of the road, corner cases, and extreme cases
 
 */
 
-package utils;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;

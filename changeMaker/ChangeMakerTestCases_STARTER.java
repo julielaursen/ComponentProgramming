@@ -245,7 +245,10 @@ public class ChangeMakerTestCases_STARTER
 	@Test
 	public void canMakeExactChange__144_89_55_34_21_13_8_5_3_2_1__201()
 	{
-		fail("Student needs to add code");
+		Set<Integer> denominations = getDenominationSet(new Integer[]{89,55,34,21,13,8,5,3,2,1});
+		ChangeMakerImpl_Laursen changeMakerImpl_Laursen = new ChangeMakerImpl_Laursen(denominations);
+		List<Integer> change = changeMakerImpl_Laursen.getExactChange(144);
+		assertEquals(Arrays.asList(new Integer[] {1,1,0,0,0,0,0,0,0,0}), change);
 	}
 	
 	@Points(value=5)
@@ -259,14 +262,19 @@ public class ChangeMakerTestCases_STARTER
 	@Test
 	public void canMakeExactChange__16777216_2097152_262144_32768_4096_512_64_8_1__88888888()
 	{
-		fail("Student needs to add code");
+		Set<Integer> denominations = getDenominationSet(new Integer[]{2097152,262144,32768,4096,512,64,8,1});
+		ChangeMakerImpl_Laursen changeMakerImpl_Laursen = new ChangeMakerImpl_Laursen(denominations);
+		assertTrue(changeMakerImpl_Laursen.canMakeExactChange(16777216));
 	}
 	
 	@Points(value=5)
 	@Test
 	public void getExactChange__16777216_2097152_262144_32768_4096_512_64_8_1__88888888()
 	{
-		fail("Student needs to add code");
+		Set<Integer> denominations = getDenominationSet(new Integer[]{2097152,262144,32768,4096,512,64,8,1});
+		ChangeMakerImpl_Laursen changeMakerImpl_Laursen = new ChangeMakerImpl_Laursen(denominations);
+		List<Integer> change = changeMakerImpl_Laursen.getExactChange(16777216);
+		assertEquals(Arrays.asList(new Integer[] {8,0,0,0,0,0,0,0}), change);
 	}
 
 	@Points(value=5)
@@ -310,6 +318,6 @@ public class ChangeMakerTestCases_STARTER
 	@Test
 	public void infiniteLoop()
 	{
-		while (true) {}
+		fail("Student needs to add code");
 	}
 }
