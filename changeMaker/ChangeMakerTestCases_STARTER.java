@@ -123,8 +123,13 @@ public class ChangeMakerTestCases_STARTER
 		TEST_GOAL_MESSAGE = "Test " + getPrettyString(usCoinDenominationSet) + ".canMakeExactChange(" + valueInCents + ")";
 		changeMaker_STUDENT = getChangeMaker(usCoinDenominationSet);
 		
+		try {
 		assertTrue("ChangeMaker should be able to make change for " + valueInCents, changeMaker_STUDENT.canMakeExactChange(valueInCents));
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
 	}
+	
 	
 	@Points(value=5)
 	@Test
@@ -138,7 +143,29 @@ public class ChangeMakerTestCases_STARTER
 		
 		List<Integer> changeList = changeMaker_STUDENT.getExactChange(valueInCents);
 		List<Integer> correctChangeList = Arrays.asList(new Integer[]{0, 2, 1, 1, 0});
-		assertEquals("Calculated changeList disagrees with expected!", correctChangeList, changeList);
+		try {
+			assertEquals("Calculated changeList disagrees with expected!", correctChangeList, changeList);
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
+	}
+	
+	@Test
+	public void getExactChange__USCoins__BigSet()
+	{
+		Set<Integer> usCoinDenominationSet = getUSCoinDenominationSet();
+		int valueInCents = 1269; // 900 + 225  + 90 + 45 + 9
+		
+		TEST_GOAL_MESSAGE = "Test " + getPrettyString(usCoinDenominationSet) + ".getExactChange(" + valueInCents + ")";
+		changeMaker_STUDENT = getChangeMaker(usCoinDenominationSet);
+		
+		List<Integer> changeList = changeMaker_STUDENT.getExactChange(valueInCents);
+		List<Integer> correctChangeList = Arrays.asList(new Integer[]{9, 9, 9, 9, 9});
+		try {
+			assertEquals("Calculated changeList disagrees with expected!", correctChangeList, changeList);
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
 	}
 
 	@Points(value=5)
@@ -150,8 +177,11 @@ public class ChangeMakerTestCases_STARTER
 		
 		TEST_GOAL_MESSAGE = "Test " + getPrettyString(usCoinDenominationSet) + ".canMakeExactChange(" + valueInCents + ")";
 		changeMaker_STUDENT = getChangeMaker(usCoinDenominationSet);
-		
-		assertTrue("ChangeMaker should be able to make change for " + valueInCents, changeMaker_STUDENT.canMakeExactChange(valueInCents));
+		try {
+			assertTrue("ChangeMaker should be able to make change for " + valueInCents, changeMaker_STUDENT.canMakeExactChange(valueInCents));
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
 	}
 
 	@Points(value=5)
@@ -163,8 +193,11 @@ public class ChangeMakerTestCases_STARTER
 		
 		TEST_GOAL_MESSAGE = "Test " + getPrettyString(usCoinDenominationSet) + ".canMakeExactChange(" + valueInCents + ")";
 		changeMaker_STUDENT = getChangeMaker(usCoinDenominationSet);
-		
-		assertTrue("ChangeMaker should be able to make change for " + valueInCents, changeMaker_STUDENT.canMakeExactChange(valueInCents));
+		try {
+			assertTrue("ChangeMaker should be able to make change for " + valueInCents, changeMaker_STUDENT.canMakeExactChange(valueInCents));
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
 	}
 
 	@Points(value=5)
@@ -176,10 +209,13 @@ public class ChangeMakerTestCases_STARTER
 		
 		TEST_GOAL_MESSAGE = "Test " + getPrettyString(usCoinDenominationSet) + ".canMakeExactChange(" + valueInCents + ")";
 		changeMaker_STUDENT = getChangeMaker(usCoinDenominationSet);
-		
-		assertTrue("ChangeMaker should be able to make change for " + valueInCents, changeMaker_STUDENT.canMakeExactChange(valueInCents));
+		try {
+			assertTrue("ChangeMaker should be able to make change for " + valueInCents, changeMaker_STUDENT.canMakeExactChange(valueInCents));
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
 	}
-
+	
 	@Points(value=5)
 	@Test
 	public void canMakeExactChange__USCoins__180004()
@@ -189,8 +225,11 @@ public class ChangeMakerTestCases_STARTER
 		
 		TEST_GOAL_MESSAGE = "Test " + getPrettyString(usCoinDenominationSet) + ".canMakeExactChange(" + valueInCents + ")";
 		changeMaker_STUDENT = getChangeMaker(usCoinDenominationSet);
-		
-		assertTrue("ChangeMaker should be able to make change for " + valueInCents, changeMaker_STUDENT.canMakeExactChange(valueInCents));
+		try {
+			assertTrue("ChangeMaker should be able to make change for " + valueInCents, changeMaker_STUDENT.canMakeExactChange(valueInCents));
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
 	}
 
 	@Points(value=5)
@@ -201,8 +240,11 @@ public class ChangeMakerTestCases_STARTER
 		int valueInCents = 0;
 		TEST_GOAL_MESSAGE = "Test " + getPrettyString(denominationSet) + ".canMakeExactChange(" + valueInCents + ")";
 		changeMaker_STUDENT = getChangeMaker(denominationSet);
-		
-		assertTrue("ChangeMaker should be able to make change for " + valueInCents, changeMaker_STUDENT.canMakeExactChange(valueInCents));
+		try {
+			assertTrue("ChangeMaker should be able to make change for " + valueInCents, changeMaker_STUDENT.canMakeExactChange(valueInCents));
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
 	}
 	
 	@Points(value=5)
@@ -217,99 +259,369 @@ public class ChangeMakerTestCases_STARTER
 		
 		List<Integer> changeList = changeMaker_STUDENT.getExactChange(valueInCents);
 		List<Integer> correctChangeList = Arrays.asList(new Integer[]{0, 0, 0, 0, 0, 0});
-		assertEquals("Calculated changeList disagrees with expected!", correctChangeList, changeList);
+		try {
+			assertEquals("Calculated changeList disagrees with expected!", correctChangeList, changeList);
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
 	}
 
 	@Points(value=5)
 	@Test
 	public void canMakeExactChange__10E8_10E7_10E6_10E5_10E4_10E3_10E2_10E1__123456789()
 	{
-		fail("Student needs to add code");
+		Set<Integer> denominationSet = getDenominationSet(new Integer[]{(int) 10E8, (int) 10E7, (int) 10E6, (int) 10E5, (int)10E4, (int)10E3, (int)10E2, (int) 10E1, 123456789});
+		int valueInCents = 0;
+		TEST_GOAL_MESSAGE = "Test " + getPrettyString(denominationSet) + ".canMakeExactChange(" + valueInCents + ")";
+		changeMaker_STUDENT = getChangeMaker(denominationSet);
+		try {
+			assertTrue("ChangeMaker should be able to make change for " + valueInCents, changeMaker_STUDENT.canMakeExactChange(valueInCents));
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
 	}
 	
 	@Points(value=5)
 	@Test
 	public void getExactChange__10E8_10E7_10E6_10E5_10E4_10E3_10E2_10E1__123456789()
 	{
-		fail("Student needs to add code");
+		Set<Integer> denominationSet = getDenominationSet(new Integer[]{(int) 10E8, (int) 10E7, (int) 10E6, (int) 10E5, (int)10E4, (int)10E3, (int)10E2, (int) 10E1, 123456789});
+		int valueInCents = 0;
+		
+		TEST_GOAL_MESSAGE = "Test " + getPrettyString(denominationSet) + ".getExactChange(" + valueInCents + ")";
+		changeMaker_STUDENT = getChangeMaker(denominationSet);
+		
+		List<Integer> changeList = changeMaker_STUDENT.getExactChange(valueInCents);
+		List<Integer> correctChangeList = Arrays.asList(new Integer[]{(int) 10E8, (int) 10E7, (int) 10E6, (int) 10E5, (int)10E4, (int)10E3, (int)10E2, (int) 10E1, 123456789});
+		try {
+			assertEquals("Calculated changeList disagrees with expected!", correctChangeList, changeList);
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
 	}
 	
 	@Points(value=5)
 	@Test
 	public void canMakeExactChange__144_89_55_34_21_13_8_5_3_2_1__0()
 	{
-		fail("Student needs to add code");
+		Set<Integer> usCoinDenominationSet = getUSCoinDenominationSet();
+		int valueInCents = 0;
+		
+		TEST_GOAL_MESSAGE = "Test " + getPrettyString(usCoinDenominationSet) + ".canMakeExactChange(" + valueInCents + ")";
+		changeMaker_STUDENT = getChangeMaker(usCoinDenominationSet);
+		try {
+			assertTrue("ChangeMaker should be able to make change for " + valueInCents, changeMaker_STUDENT.canMakeExactChange(valueInCents));
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
 	}
 	
 	@Points(value=5)
 	@Test
 	public void canMakeExactChange__144_89_55_34_21_13_8_5_3_2_1__201()
 	{
-		fail("Student needs to add code");
+
+		Set<Integer> usCoinDenominationSet = getUSCoinDenominationSet();
+		int valueInCents = 201;
+		
+		TEST_GOAL_MESSAGE = "Test " + getPrettyString(usCoinDenominationSet) + ".canMakeExactChange(" + valueInCents + ")";
+		changeMaker_STUDENT = getChangeMaker(usCoinDenominationSet);
+		try {
+			assertTrue("ChangeMaker should be able to make change for " + valueInCents, changeMaker_STUDENT.canMakeExactChange(valueInCents));
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
 	}
 	
 	@Points(value=5)
 	@Test
 	public void getExactChange__144_89_55_34_21_13_8_5_3_2_1__201()
 	{
-		fail("Student needs to add code");
+		Set<Integer> denominationSet = getDenominationSet(new Integer[]{144, 89, 55, 34, 21, 13, 8, 5, 3, 2, 1});
+		int valueInCents = 201;
+		
+		TEST_GOAL_MESSAGE = "Test " + getPrettyString(denominationSet) + ".getExactChange(" + valueInCents + ")";
+		changeMaker_STUDENT = getChangeMaker(denominationSet);
+		
+		List<Integer> changeList = changeMaker_STUDENT.getExactChange(valueInCents);
+		List<Integer> correctChangeList = Arrays.asList(new Integer[]{1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0});
+		try {
+			assertEquals("Calculated changeList disagrees with expected!", correctChangeList, changeList);
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
 	}
 	
 	@Points(value=5)
 	@Test
 	public void canMakeExactChange__16777216_2097152_262144_32768_4096_512_64_8_1__88888888()
 	{
-		fail("Student needs to add code");
+		Set<Integer> usCoinDenominationSet = getUSCoinDenominationSet();
+		int valueInCents = 88888888;
+		
+		TEST_GOAL_MESSAGE = "Test " + getPrettyString(usCoinDenominationSet) + ".canMakeExactChange(" + valueInCents + ")";
+		changeMaker_STUDENT = getChangeMaker(usCoinDenominationSet);
+		try {
+			assertTrue("ChangeMaker should be able to make change for " + valueInCents, changeMaker_STUDENT.canMakeExactChange(valueInCents));
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
 	}
 	
 	@Points(value=5)
 	@Test
 	public void getExactChange__16777216_2097152_262144_32768_4096_512_64_8_1__88888888()
 	{
-		fail("Student needs to add code");
+		Set<Integer> denominationSet = getDenominationSet(new Integer[]{16777216, 2097152, 262144, 32768, 4096, 512, 64, 8, 1});
+		int valueInCents = 201;
+		
+		TEST_GOAL_MESSAGE = "Test " + getPrettyString(denominationSet) + ".getExactChange(" + valueInCents + ")";
+		changeMaker_STUDENT = getChangeMaker(denominationSet);
+		
+		List<Integer> changeList = changeMaker_STUDENT.getExactChange(valueInCents);
+		List<Integer> correctChangeList = Arrays.asList(new Integer[]{5, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0});
+		try {
+			assertEquals("Calculated changeList disagrees with expected!", correctChangeList, changeList);
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
 	}
 
 	@Points(value=5)
 	@Test
+	public void calculateValueOfChangeList__537824_38416_2744_196_14_1__0_0_0_0_0_15()
+	{
+		Set<Integer> test19 = new HashSet<>(Arrays.asList(new Integer[] {537824, 38416, 2744, 196, 14, 1}));
+		List<Integer> calcValue19 = new ArrayList<Integer>();
+		ChangeMaker change19 = new ChangeMakerImpl_Laursen(test19);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(15);
+		change19.calculateValueOfChangeList(calcValue19);
+	}
+	
+	@Test
 	public void calculateValueOfChangeList__537824_38416_2744_196_14_1__0_0_0_0_0_0()
 	{
-		fail("Student needs to add code");
+		Set<Integer> test19 = new HashSet<>(Arrays.asList(new Integer[] {537824, 38416, 2744, 196, 14, 1}));
+		List<Integer> calcValue19 = new ArrayList<Integer>();
+		ChangeMaker change19 = new ChangeMakerImpl_Laursen(test19);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		change19.calculateValueOfChangeList(calcValue19);
 	}
 	
 	@Points(value=5)
 	@Test
 	public void calculateValueOfChangeList__144_89_55_34_21_13_8_5_3_2_1__0_0_0_0_0_0_0_3_2_1_0()
 	{
-		fail("Student needs to add code");
+		Set<Integer> test19 = new HashSet<>(Arrays.asList(new Integer[] {144, 89, 55, 34, 21, 13, 8, 5, 3, 2, 1}));
+		List<Integer> calcValue19 = new ArrayList<Integer>();
+		ChangeMaker change19 = new ChangeMakerImpl_Laursen(test19);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(3);
+		calcValue19.add(2);
+		calcValue19.add(1);
+		calcValue19.add(0);
+		change19.calculateValueOfChangeList(calcValue19);
 	}
+	
+	@Test
+	public void calculateValueOfChangeList__144_89_55_34_21_13_8_5_3_2_1__neg()
+	{
+		Set<Integer> test19 = new HashSet<>(Arrays.asList(new Integer[] {144, 89, 55, 34, 21, 13, 8, 5, 3, 2, 1}));
+		List<Integer> calcValue19 = new ArrayList<Integer>();
+		ChangeMaker change19 = new ChangeMakerImpl_Laursen(test19);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(3);
+		calcValue19.add(2);
+		calcValue19.add(1);
+		calcValue19.add(15);
+		change19.calculateValueOfChangeList(calcValue19);
+	}
+	
 	
 	@Points(value=5)
 	@Test
 	public void canMakeExactChange__8000_400_20_1__492()
 	{
-		fail("Student needs to add code");
+		Set<Integer> usCoinDenominationSet = getUSCoinDenominationSet();
+		int valueInCents = 492;
+		
+		TEST_GOAL_MESSAGE = "Test " + getPrettyString(usCoinDenominationSet) + ".canMakeExactChange(" + valueInCents + ")";
+		changeMaker_STUDENT = getChangeMaker(usCoinDenominationSet);
+		
+		assertTrue("ChangeMaker should be able to make change for " + valueInCents, changeMaker_STUDENT.canMakeExactChange(valueInCents));
+		
 	}
 	
 	@Points(value=5)
 	@Test
 	public void getExactChange__8000_400_20_1__492()
 	{
-		fail("Student needs to add code");
+		Set<Integer> denominationSet = getDenominationSet(new Integer[]{8000, 400, 20, 1});
+		int valueInCents = 492;
+		
+		TEST_GOAL_MESSAGE = "Test " + getPrettyString(denominationSet) + ".getExactChange(" + valueInCents + ")";
+		changeMaker_STUDENT = getChangeMaker(denominationSet);
+		
+		List<Integer> changeList = changeMaker_STUDENT.getExactChange(valueInCents);
+		List<Integer> correctChangeList = Arrays.asList(new Integer[]{0, 1, 4, 12});
+		assertEquals("Calculated changeList disagrees with expected!", correctChangeList, changeList);
 	}
 	
 	@Points(value=5)
 	@Test
 	public void calculateValueOfChangeList__USCoinSet__0_0_0_0_28()
 	{
-		fail("Student needs to add code");
+		Set<Integer> test19 = new HashSet<>(Arrays.asList(new Integer[] {25, 10, 5, 1}));
+		List<Integer> calcValue19 = new ArrayList<Integer>();
+		ChangeMaker change19 = new ChangeMakerImpl_Laursen(test19);
+		calcValue19.add(0);
+		calcValue19.add(2);
+		calcValue19.add(1);
+		calcValue19.add(0);
+		System.out.println("calculateValueOfChangeList__25, 10,5, 1.calculateValueofChangeList([_0_2_1_0]): " + change19.calculateValueOfChangeList(calcValue19));
 	}
 	
 	//STUDENT SHOULD ADD MANY OTHER TEST CASES
 	//WHAT HAS NOT BEEN TESTED?
 	//ANY OTHER CORNER CASES?
 	@Test
+	public void getExactChange__USCoins__Negative()
+	{
+		Set<Integer> usCoinDenominationSet = getUSCoinDenominationSet();
+		int valueInCents = -1;
+		
+		TEST_GOAL_MESSAGE = "Test " + getPrettyString(usCoinDenominationSet) + ".getExactChange(" + valueInCents + ")";
+		changeMaker_STUDENT = getChangeMaker(usCoinDenominationSet);
+		List<Integer> changeList = changeMaker_STUDENT.getExactChange(valueInCents);
+	}
+	
+	@Test
+	public void getExactChange__USCoins__IncorrectExpectation()
+	{
+		Set<Integer> usCoinDenominationSet = getUSCoinDenominationSet();
+		int valueInCents = 65;
+		
+		TEST_GOAL_MESSAGE = "Test " + getPrettyString(usCoinDenominationSet) + ".getExactChange(" + valueInCents + ")";
+		changeMaker_STUDENT = getChangeMaker(usCoinDenominationSet);
+		
+		List<Integer> changeList = changeMaker_STUDENT.getExactChange(valueInCents);
+		List<Integer> correctChangeList = Arrays.asList(new Integer[]{0, 2, 4, 1, 0});
+		try {
+			assertEquals("Calculated changeList disagrees with expected!", correctChangeList, changeList);
+		}catch(AssertionError e) {
+			throw new RuntimeException();
+		}
+	}
+	
+	@Test
+	public void getExactChange__USCoins__Negative3()
+	{
+		Set<Integer> usCoinDenominationSet = getUSCoinDenominationSet();
+		int valueInCents = -50;
+		
+		TEST_GOAL_MESSAGE = "Test " + getPrettyString(usCoinDenominationSet) + ".getExactChange(" + valueInCents + ")";
+		changeMaker_STUDENT = getChangeMaker(usCoinDenominationSet);
+		
+		List<Integer> changeList = changeMaker_STUDENT.getExactChange(valueInCents);
+		List<Integer> correctChangeList = Arrays.asList(new Integer[]{0, -1, -2, -1, 0});
+		assertEquals("Calculated changeList disagrees with expected!", correctChangeList, changeList);
+	}
+	
+	@Test
+	public void calculateValueOfChangeList__USCoinSet__0_0_0_0_0()
+	{
+		Set<Integer> test19 = new HashSet<>(Arrays.asList(new Integer[] {25, 10, 5, 1}));
+		List<Integer> calcValue19 = new ArrayList<Integer>();
+		ChangeMaker change19 = new ChangeMakerImpl_Laursen(test19);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		System.out.println("calculateValueOfChangeList__25, 10,5, 1.calculateValueofChangeList([_0_0_0_0]): " + change19.calculateValueOfChangeList(calcValue19));
+	}
+
+	@Test
+	public void calculateValueOfChangeList__USCoinSet__Neg()
+	{
+		Set<Integer> test19 = new HashSet<>(Arrays.asList(new Integer[] {25, 10, 5, 1}));
+		List<Integer> calcValue19 = new ArrayList<Integer>();
+		ChangeMaker change19 = new ChangeMakerImpl_Laursen(test19);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(0);
+		calcValue19.add(-1);
+		change19.calculateValueOfChangeList(calcValue19);
+	}
+	
+	@Test
+	public void getRemainderList() {
+		Set<Integer> denominationSet = getDenominationSet(new Integer[]{25, 10, 5, 1});
+		int valueInCents = 65;
+		
+		TEST_GOAL_MESSAGE = "Test " + getPrettyString(denominationSet) + ".getExactChange(" + valueInCents + ")";
+		changeMaker_STUDENT = getChangeMaker(denominationSet);
+		
+		List<Integer> changeList = changeMaker_STUDENT.getExactChange(valueInCents);
+		List<Integer> correctChangeList = Arrays.asList(new Integer[]{2, 1, 1, 0});
+		List<Integer> remainderList = Arrays.asList(new Integer[]{65, 15, 5, 0});
+		assertEquals("Calculated changeList disagrees with expected!", correctChangeList, changeList);
+		List<Integer>remainder = changeMaker_STUDENT.getRemainders(valueInCents);
+		assertEquals("Calculated changeList disagrees with expected!", remainderList, remainder);
+	}
+	
+	@Test
+	public void getPretty() {
+		Set<Integer> set = new HashSet<>(Arrays.asList(new Integer[] {25, 10, 5, 1}));
+		assertEquals("{25, 10, 5, 1}", getPrettyString(set));
+ 	}
+	
+	@Test
+	public void getPrettyIntegerArray() {
+		Integer[] integerArray = new Integer[] {25, 10, 5, 1};
+		assertEquals("[25, 10, 5, 1]", getPrettyString(integerArray));
+
+	}
+
+	@Test
+	public void getPrettyIntegerList() {
+		List<Integer> integerList = Arrays.asList(new Integer[] {25, 10, 5, 1});
+		assertEquals("[25, 10, 5, 1]", getPrettyString(integerList));
+	}
+	
+	@Test
 	public void infiniteLoop()
 	{
 		while (true) {}
+	}
+	
+	@Test
+	public void denListTest() {
+		Set <Integer>s = new HashSet<Integer>(Arrays.asList(new Integer[] {1, 5, 10}));
+		ChangeMaker changemaker = new ChangeMakerImpl_Laursen(s);
+		List<Integer> correctList = Arrays.asList(new Integer[] {10, 5, 1});
+		List<Integer> denList = changemaker.getDenominations();
+		assertEquals(true, correctList.equals(denList));
 	}
 }

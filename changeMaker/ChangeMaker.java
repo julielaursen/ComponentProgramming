@@ -6,9 +6,6 @@ public interface ChangeMaker {
 
 	public List<Integer> getDenominations();
 
-	//pre
-
-	//post
 	public boolean canMakeExactChange(int valueInCents);
 	
 	//pre canMakeExacthange(valueInCents);
@@ -21,4 +18,8 @@ public interface ChangeMaker {
 	//pre SIZE = changeList.size()
 	//post
 	public int calculateValueOfChangeList(List<Integer> changeList);
+
+	public List<Integer> getRemainders(int valueInCents);
+
+	
 }

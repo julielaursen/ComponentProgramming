@@ -6,10 +6,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import dominoes.Domino;
-import dominoes.DominoHighLowImpl_Laursen;
-
-
 public class ChangeMakerTest_Laursen {
 	
 	public static void main(String[] args) {
@@ -66,6 +62,10 @@ public class ChangeMakerTest_Laursen {
 	ChangeMaker change6 = new ChangeMakerImpl_Laursen(test6);
 	System.out.println("canMakeExactChange(180004): " + change6.canMakeExactChange(180004));
 	
+	Set<Integer> testba = new HashSet<>(Arrays.asList(new Integer[] {100, 25, 10, 5, 1}));
+	ChangeMaker changeba = new ChangeMakerImpl_Laursen(testba);
+	System.out.println("canMakeExactChange(1269): " + changeba.getExactChange(99999));
+	
 	System.out.println("--------------------");
 	
 	Set<Integer> test7 = new HashSet<>(Arrays.asList(new Integer[] {32, 16, 8, 4, 2, 1}));
@@ -75,6 +75,7 @@ public class ChangeMakerTest_Laursen {
 	Set<Integer> test8 = new HashSet<>(Arrays.asList(new Integer[] {32, 16, 8, 4, 2, 1}));
 	ChangeMaker change8 = new ChangeMakerImpl_Laursen(test8);
 	System.out.println("getExactChange(0): " + change8.getExactChange(0));
+	
 	
 	System.out.println("--------------------");
 	
@@ -227,6 +228,15 @@ public class ChangeMakerTest_Laursen {
 	ChangeMaker change35 = new ChangeMakerImpl_Laursen(test35);
 	System.out.println("100, 25, 10, 5, 1}].getExactChange(0): " + change35.getExactChange(0));
 	
+	//8000, 400, 20, 1
+	Set<Integer> testa = new HashSet<>(Arrays.asList(new Integer[] {8000, 400, 20, 1}));
+	ChangeMaker changea = new ChangeMakerImpl_Laursen(testa);
+	System.out.println("8000, 400, 20, 1}].getExactChange(0): " + changea.getExactChange(492));
+	
+	Set<Integer> testb = new HashSet<>(Arrays.asList(new Integer[] {8000, 400, 20, 1}));
+	ChangeMaker changeb = new ChangeMakerImpl_Laursen(testb);
+	System.out.println("8000, 400, 20, 1].canMakeExactChange(0): " + changeb.canMakeExactChange(492));
+	
 	
 	Set<Integer> test36 = new HashSet<>(Arrays.asList(new Integer[] {256, 128, 64, 32, 16, 8, 4, 2, 1}));
 	List<Integer> calcValue36 = new ArrayList<Integer>();
@@ -311,10 +321,13 @@ public class ChangeMakerTest_Laursen {
 	ChangeMaker change50 = new ChangeMakerImpl_Laursen(test50);
 	System.out.println("[10].canMakeExactChange(10): " + change50.canMakeExactChange(9));
 	
-	//CAN PASS IN A NEGATIVE
-	Set<Integer> test51 = new HashSet<>(Arrays.asList(new Integer[] {-10}));
-	ChangeMaker change51 = new ChangeMakerImpl_Laursen(test51);
-	System.out.println("[10].canMakeExactChange(-10): " + change51.canMakeExactChange(10));
+//	Set<Integer> test51 = new HashSet<>(Arrays.asList(new Integer[] {-10}));
+	//ChangeMaker change51 = new ChangeMakerImpl_Laursen(test51);
+	//System.out.println("[10].canMakeExactChange(-10): " + change51.canMakeExactChange(10));
 	
+	System.out.println("----------------");
+	Set<Integer> test52 = new HashSet<>(Arrays.asList(new Integer[]{(int) 10E8, (int) 10E7, (int) 10E6, (int) 10E5, (int)10E4, (int)10E3, (int)10E2, (int) 10E1, 123456789}));
+	ChangeMaker change52 = new ChangeMakerImpl_Laursen(test52);
+	System.out.println("[E set].canMakeExactChange(0): " + change52.canMakeExactChange(0));
 	}
 }
