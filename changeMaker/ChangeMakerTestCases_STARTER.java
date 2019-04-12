@@ -247,7 +247,7 @@ public class ChangeMakerTestCases_STARTER
 	{
 		Set<Integer> denominations = getDenominationSet(new Integer[]{89,55,34,21,13,8,5,3,2,1});
 		ChangeMakerImpl_Laursen changeMakerImpl_Laursen = new ChangeMakerImpl_Laursen(denominations);
-		List<Integer> change = changeMakerImpl_Laursen.getExactChange(144);
+		List<Integer> change = changeMakerImpl_Laursen.getExactChange(201);
 		assertEquals(Arrays.asList(new Integer[] {1,1,0,0,0,0,0,0,0,0}), change);
 	}
 	
