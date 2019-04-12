@@ -1,52 +1,131 @@
 package TicTacToe;
 
+import java.util.Scanner;
+
 public class TicTacToeBoardImpl implements TicTacToeBoard {
-	
-	protected static final int NO_MOVE = -1;
-	protected static final int NO_MATCH = -1;
-	
-	protected int[] movesArray;
-	
-	public TicTacToeBoardImpl() {
-		final int CELL_COUNT = ROW_COUNT*COLUMN_COUNT;
-		movesArray = new int[CELL_COUNT];
-		for(int i = 0; i < CELL_COUNT; i++)
-		{
-			movesArray[i] = NO_MOVE;
+
+	protected static final Mark NO_MOVE = null;
+
+	private final int columnCount;
+	private final Mark[] board;
+
+	public static void main(String... args) {
+		TicTacToeBoard board = new TicTacToeBoardImpl(3);
+		Scanner scanner = null;
+		try {
+			scanner = new Scanner(System.in);
+			Mark player = Mark.X;
+			while (!board.isGameOver()) {
+				String[] move = null;
+				while (!validMove(move, board, player)) {
+					System.out.print(player + " move: ");
+					move = scanner.nextLine().split(",");
+				}
+				String boardString = board.toString();
+				System.out.println(boardString);
+				player = player.next();
+			}
+		} finally {
+			if (scanner != null) {
+				scanner.close();
+			}
 		}
+		System.out.println("The winner is " + board.getWinner());
 	}
 
-	public Mark moveBoard(int row, int column, Mark mark) {
-		int numInput = 0;
-		assert numInput >= 0:"Mark must be at zeroth index or higher";
-		assert numInput <= 9:"Mark must be at ninth index or lower";
-		return mark;
-		
-	
+	public static boolean validMove(String[] move, TicTacToeBoard board, Mark player) {
+		if (move == null) {
+			return false;
+		}
+		if (move.length != 2) {
+			return false;
+		}
+		int row;
+		int column;
+		try {
+			row = Integer.parseInt(move[0].trim());
+			column = Integer.parseInt(move[1].trim());
+		} catch (Exception e) {
+			return false;
+		}
+		if (board.getMark(row, column) != null) {
+			return false;
+		}
+		board.setMark(row, column, player);
+
+		return true;
 	}
-	
-@Override
+
+	public TicTacToeBoardImpl(int columnCount) {
+		this.columnCount = columnCount;
+		this.board = new Mark[columnCount * columnCount];
+	}
+
+	@Override
 	public Mark getMark(int row, int column) {
-		return null;
+		return board[row * columnCount + column];
 	}
 
 	@Override
 	public boolean isGameOver() {
-		// TODO Auto-generated method stub
-		return false;
+		return getWinner() != null;
 	}
 
 	@Override
 	public Mark getWinner() {
-		// TODO Auto-generated method stub
+		Mark check;
+		for (int i = 0; i < columnCount; i++) {
+			check = check(i, 0, 0, 1);
+			if (check != null)
+				return check;
+			check = check(0, i, 1, 0);
+			if (check != null)
+				return check;
+		}
+		check = check(0, 0, 1, 1);
+		if (check != null)
+			return check;
+		check = check(0, 2, 1, -1);
+		if (check != null)
+			return check;
 		return null;
+	}
+
+	private Mark check(int row, int column, int rowIncr, int columnIncr) {
+		Mark current = null;
+		for (int i = 0; i < columnCount; i++) {
+			Mark mark = getMark(row, column);
+			if (mark == null) {
+				return null;
+			}
+			if (current == null) {
+				current = mark;
+			} else {
+				if (current != mark) {
+					return null;
+				}
+			}
+			row = row + rowIncr;
+			column = column + columnIncr;
+		}
+		return current;
 	}
 
 	@Override
 	public void setMark(int row, int column, Mark mark) {
-		// TODO Auto-generated method stub
-		
+		board[row * columnCount + column] = mark;
 	}
-	
 
+	@Override
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		for (int row = 0; row < columnCount; row++) {
+			for (int column = 0; column < columnCount; column++) {
+				Mark mark = getMark(row, column);
+				sb.append(mark == null ? "+" : mark.name()).append(" ");
+			}
+			sb.append('\n');
+		}
+		return sb.toString();
+	}
 }
