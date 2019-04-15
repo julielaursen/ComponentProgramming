@@ -10,7 +10,7 @@ public class TicTacToeBoardImpl implements TicTacToeBoard {
 	private final Mark[] board;
 
 	public static void main(String... args) {
-		TicTacToeBoard board = new TicTacToeBoardImpl(3);
+		TicTacToeBoard board = new TicTacToeBoardImpl(4);
 		Scanner scanner = null;
 		try {
 			scanner = new Scanner(System.in);
@@ -18,7 +18,7 @@ public class TicTacToeBoardImpl implements TicTacToeBoard {
 			while (!board.isGameOver()) {
 				String[] move = null;
 				while (!validMove(move, board, player)) {
-					System.out.print(player + " move: ");
+					System.out.print(player + " move (row, column): ");
 					move = scanner.nextLine().split(",");
 				}
 				String boardString = board.toString();
@@ -30,7 +30,13 @@ public class TicTacToeBoardImpl implements TicTacToeBoard {
 				scanner.close();
 			}
 		}
-		System.out.println("The winner is " + board.getWinner());
+		Mark winner = board.getWinner();
+		if (winner == null) {
+			System.out.println("The game is tied.");
+		}
+		else {
+			System.out.println("The winner is " + winner + ".");
+		}
 	}
 
 	public static boolean validMove(String[] move, TicTacToeBoard board, Mark player) {
@@ -43,8 +49,8 @@ public class TicTacToeBoardImpl implements TicTacToeBoard {
 		int row;
 		int column;
 		try {
-			row = Integer.parseInt(move[0].trim());
-			column = Integer.parseInt(move[1].trim());
+			row = Integer.parseInt(move[0].trim()) - 1;
+			column = Integer.parseInt(move[1].trim()) - 1;
 		} catch (Exception e) {
 			return false;
 		}
@@ -68,7 +74,15 @@ public class TicTacToeBoardImpl implements TicTacToeBoard {
 
 	@Override
 	public boolean isGameOver() {
-		return getWinner() != null;
+		if(getWinner() != null) {
+			return true;
+		}
+		for (Mark mark : board) {
+			if(mark == null) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	@Override
@@ -85,7 +99,7 @@ public class TicTacToeBoardImpl implements TicTacToeBoard {
 		check = check(0, 0, 1, 1);
 		if (check != null)
 			return check;
-		check = check(0, 2, 1, -1);
+		check = check(0, columnCount-1, 1, -1);
 		if (check != null)
 			return check;
 		return null;
