@@ -1,4 +1,4 @@
-package TicTacToe;
+package tictactoe;
 
 public interface TicTacToeBoard {
 	
@@ -15,7 +15,7 @@ public interface TicTacToeBoard {
 	//pre: !isGameOver();
 	//pre: mark.equals(get.Turn());
 	
-	public void setMark(int row, int column, Mark mark);
+	public void setMark(int row, int column);
 	//post: rv == null <==> it is neither players turn (game is over)
 	
 	//post: left to student
@@ -26,5 +26,8 @@ public interface TicTacToeBoard {
 	//post: rv == null <==> neither player won
 	public Mark getWinner();
 
+ 
+	public Mark getTurn();
 	
+//	public void pass();
 }
