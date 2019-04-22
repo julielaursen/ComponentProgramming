@@ -9,7 +9,6 @@ public interface TicTacToeBoard {
 	//part of post rv == null <==> the (row, column) spot on the board is empty
 	
 	public Mark getMark(int row, int column);
-	//part of pre: 0 <= row < ROW_COUNT && 0 <= column < COLUMN_COUNT
 	//pre: mark !=null
 	//pre getMark(row, column) == null
 	//pre: !isGameOver();
