@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package tictactoe;
+package tictactoes;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,17 +14,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TicTacToeBoardImplTest_Laursen {
-  private tictactoe.TicTacToeBoard ticTacToeBoard_Laursen;
+  private tictactoes.TicTacToeBoard ticTacToeBoard_Laursen;
 
   public TicTacToeBoardImplTest_Laursen() {
   }
 
   @Before
   public void setUp() {
-    this.ticTacToeBoard_Laursen = new tictactoe.TicTacToeBoardImpl_Laursen();
+    this.ticTacToeBoard_Laursen = new tictactoes.TicTacToeBoardImpl_Laursen();
   }
 
-  private void getPrettyString(tictactoe.TicTacToeBoard movesArray) {
+  private void getPrettyString(tictactoes.TicTacToeBoard movesArray) {
     int i;
     for(i = 0; i < 3; ++i) {
       System.out.print(movesArray.getMark(0, i) == null ? " | " : movesArray.getMark(0, i));
@@ -62,48 +62,48 @@ public class TicTacToeBoardImplTest_Laursen {
   @Test
   public void testDeterministicChicken() {
     List<Integer> rankedLocationList_LRTB = getLeftToRightTopToBottomLocationList(3, 3);
-    tictactoe.Player DeterministicChicken = new DeterministicPlayerImpl_Laursen(rankedLocationList_LRTB);
+    tictactoes.Player DeterministicChicken = new DeterministicPlayerImpl_Laursen(rankedLocationList_LRTB);
     this.ticTacToeBoard_Laursen.setMark(0, 2);
     this.ticTacToeBoard_Laursen.setMark(1, 1);
     this.ticTacToeBoard_Laursen.setMark(2, 1);
     this.ticTacToeBoard_Laursen.setMark(0, 0);
     this.getPrettyString(this.ticTacToeBoard_Laursen);
-    tictactoe.Move move = DeterministicChicken.getNextMove(this.ticTacToeBoard_Laursen);
-    tictactoe.Mark EMPTY = null;
+    tictactoes.Move move = DeterministicChicken.getNextMove(this.ticTacToeBoard_Laursen);
+    tictactoes.Mark EMPTY = null;
     Assert.assertTrue(EMPTY == this.ticTacToeBoard_Laursen.getMark(move.getRow(), move.getColumn()));
     int rowOfHighestRankedEmptyLocation = 0;
     int columnOfHighestRankedEmptyLocation = 1;
     Assert.assertTrue(rowOfHighestRankedEmptyLocation == move.getRow());
     Assert.assertTrue(columnOfHighestRankedEmptyLocation == move.getColumn());
-    tictactoe.Mark markOfNextMove = this.ticTacToeBoard_Laursen.getTurn();
+    tictactoes.Mark markOfNextMove = this.ticTacToeBoard_Laursen.getTurn();
     Assert.assertTrue(markOfNextMove == move.getMark());
   }
 
   @Test
   public void testDeterministicChicken2() {
     List<Integer> rankedLocationList_LRTB = getLeftToRightTopToBottomLocationList(3, 3);
-    tictactoe.Player DeterministicChicken = new DeterministicPlayerImpl_Laursen(rankedLocationList_LRTB);
+    tictactoes.Player DeterministicChicken = new DeterministicPlayerImpl_Laursen(rankedLocationList_LRTB);
     this.ticTacToeBoard_Laursen.setMark(0, 2);
     this.ticTacToeBoard_Laursen.setMark(1, 1);
     this.ticTacToeBoard_Laursen.setMark(2, 1);
     this.ticTacToeBoard_Laursen.setMark(0, 0);
     this.ticTacToeBoard_Laursen.setMark(0, 1);
     this.getPrettyString(this.ticTacToeBoard_Laursen);
-    tictactoe.Move move = DeterministicChicken.getNextMove(this.ticTacToeBoard_Laursen);
-    tictactoe.Mark EMPTY = null;
+    tictactoes.Move move = DeterministicChicken.getNextMove(this.ticTacToeBoard_Laursen);
+    tictactoes.Mark EMPTY = null;
     Assert.assertTrue(EMPTY == this.ticTacToeBoard_Laursen.getMark(move.getRow(), move.getColumn()));
     int rowOfHighestRankedEmptyLocation = 1;
     int columnOfHighestRankedEmptyLocation = 2;
     Assert.assertTrue(rowOfHighestRankedEmptyLocation == move.getRow());
     Assert.assertTrue(columnOfHighestRankedEmptyLocation == move.getColumn());
-    tictactoe.Mark markOfNextMove = this.ticTacToeBoard_Laursen.getTurn();
+    tictactoes.Mark markOfNextMove = this.ticTacToeBoard_Laursen.getTurn();
     Assert.assertTrue(markOfNextMove == move.getMark());
   }
 
   @Test
   public void testDeterministicChicken3() {
     List<Integer> rankedLocationList_LRTB = getLeftToRightTopToBottomLocationList(3, 3);
-    tictactoe.Player DeterministicChicken = new DeterministicPlayerImpl_Laursen(rankedLocationList_LRTB);
+    tictactoes.Player DeterministicChicken = new DeterministicPlayerImpl_Laursen(rankedLocationList_LRTB);
     this.ticTacToeBoard_Laursen.setMark(0, 2);
     this.ticTacToeBoard_Laursen.setMark(1, 1);
     this.ticTacToeBoard_Laursen.setMark(2, 1);
@@ -111,21 +111,21 @@ public class TicTacToeBoardImplTest_Laursen {
     this.ticTacToeBoard_Laursen.setMark(0, 1);
     this.ticTacToeBoard_Laursen.setMark(1, 0);
     this.getPrettyString(this.ticTacToeBoard_Laursen);
-    tictactoe.Move move = DeterministicChicken.getNextMove(this.ticTacToeBoard_Laursen);
-    tictactoe.Mark EMPTY = null;
+    tictactoes.Move move = DeterministicChicken.getNextMove(this.ticTacToeBoard_Laursen);
+    tictactoes.Mark EMPTY = null;
     Assert.assertTrue(EMPTY == this.ticTacToeBoard_Laursen.getMark(move.getRow(), move.getColumn()));
     int rowOfHighestRankedEmptyLocation = 1;
     int columnOfHighestRankedEmptyLocation = 2;
     Assert.assertTrue(rowOfHighestRankedEmptyLocation == move.getRow());
     Assert.assertTrue(columnOfHighestRankedEmptyLocation == move.getColumn());
-    tictactoe.Mark markOfNextMove = this.ticTacToeBoard_Laursen.getTurn();
+    tictactoes.Mark markOfNextMove = this.ticTacToeBoard_Laursen.getTurn();
     Assert.assertTrue(markOfNextMove == move.getMark());
   }
 
   @Test
   public void testDeterministicChickenWinnerO() {
     List<Integer> rankedLocationList_LRTB = getLeftToRightTopToBottomLocationList(3, 3);
-    tictactoe.Player DeterministicChicken = new DeterministicPlayerImpl_Laursen(rankedLocationList_LRTB);
+    tictactoes.Player DeterministicChicken = new DeterministicPlayerImpl_Laursen(rankedLocationList_LRTB);
     this.ticTacToeBoard_Laursen.setMark(0, 2);
     this.ticTacToeBoard_Laursen.setMark(1, 1);
     this.ticTacToeBoard_Laursen.setMark(2, 1);
@@ -134,78 +134,78 @@ public class TicTacToeBoardImplTest_Laursen {
     this.ticTacToeBoard_Laursen.setMark(1, 0);
     this.ticTacToeBoard_Laursen.setMark(1, 2);
     this.getPrettyString(this.ticTacToeBoard_Laursen);
-    tictactoe.Move move = DeterministicChicken.getNextMove(this.ticTacToeBoard_Laursen);
-    tictactoe.Mark EMPTY = null;
+    tictactoes.Move move = DeterministicChicken.getNextMove(this.ticTacToeBoard_Laursen);
+    tictactoes.Mark EMPTY = null;
     Assert.assertTrue(EMPTY == this.ticTacToeBoard_Laursen.getMark(move.getRow(), move.getColumn()));
     int rowOfHighestRankedEmptyLocation = 2;
     int columnOfHighestRankedEmptyLocation = 0;
     Assert.assertTrue(rowOfHighestRankedEmptyLocation == move.getRow());
     Assert.assertTrue(columnOfHighestRankedEmptyLocation == move.getColumn());
-    tictactoe.Mark markOfNextMove = this.ticTacToeBoard_Laursen.getTurn();
+    tictactoes.Mark markOfNextMove = this.ticTacToeBoard_Laursen.getTurn();
     Assert.assertTrue(markOfNextMove == move.getMark());
     this.ticTacToeBoard_Laursen.setMark(rowOfHighestRankedEmptyLocation, columnOfHighestRankedEmptyLocation);
     Assert.assertEquals(true, this.ticTacToeBoard_Laursen.isGameOver());
-    Assert.assertEquals(tictactoe.Mark.O, this.ticTacToeBoard_Laursen.getWinner());
+    Assert.assertEquals(tictactoes.Mark.O, this.ticTacToeBoard_Laursen.getWinner());
   }
 
   @Test
   public void testRandomChicken() {
-    tictactoe.Player randomChicken = new RandomChickenPlayerImpl();
+    tictactoes.Player randomChicken = new RandomChickenPlayerImpl();
     this.ticTacToeBoard_Laursen.setMark(0, 2);
     this.ticTacToeBoard_Laursen.setMark(1, 1);
     this.ticTacToeBoard_Laursen.setMark(2, 1);
     this.ticTacToeBoard_Laursen.setMark(0, 0);
-    tictactoe.Move move = randomChicken.getNextMove(this.ticTacToeBoard_Laursen);
-    tictactoe.Mark EMPTY = null;
+    tictactoes.Move move = randomChicken.getNextMove(this.ticTacToeBoard_Laursen);
+    tictactoes.Mark EMPTY = null;
     Assert.assertTrue(EMPTY == this.ticTacToeBoard_Laursen.getMark(move.getRow(), move.getColumn()));
-    tictactoe.Mark markOfNextMove = this.ticTacToeBoard_Laursen.getTurn();
+    tictactoes.Mark markOfNextMove = this.ticTacToeBoard_Laursen.getTurn();
     Assert.assertTrue(markOfNextMove == move.getMark());
   }
 
   @Test
   public void testTerribleChicken() {
     List<Integer> terribleRankedLocationList = Arrays.asList(1, 5, 6, 3, 2, 6, 8, 0, 4);
-    tictactoe.Player terribleChicken = new DeterministicPlayerImpl_Laursen(terribleRankedLocationList);
+    tictactoes.Player terribleChicken = new DeterministicPlayerImpl_Laursen(terribleRankedLocationList);
     this.ticTacToeBoard_Laursen.setMark(0, 2);
     this.ticTacToeBoard_Laursen.setMark(1, 1);
     this.ticTacToeBoard_Laursen.setMark(2, 1);
     this.ticTacToeBoard_Laursen.setMark(0, 0);
-    tictactoe.Move move = terribleChicken.getNextMove(this.ticTacToeBoard_Laursen);
-    tictactoe.Mark EMPTY = null;
+    tictactoes.Move move = terribleChicken.getNextMove(this.ticTacToeBoard_Laursen);
+    tictactoes.Mark EMPTY = null;
     Assert.assertTrue(EMPTY == this.ticTacToeBoard_Laursen.getMark(move.getRow(), move.getColumn()));
     int rowOfHighestRankedEmptyLocation = 0;
     int columnOfHighestRankedEmptyLocation = 1;
     Assert.assertTrue(rowOfHighestRankedEmptyLocation == move.getRow());
     Assert.assertTrue(columnOfHighestRankedEmptyLocation == move.getColumn());
-    tictactoe.Mark markOfNextMove = this.ticTacToeBoard_Laursen.getTurn();
+    tictactoes.Mark markOfNextMove = this.ticTacToeBoard_Laursen.getTurn();
     Assert.assertTrue(markOfNextMove == move.getMark());
   }
 
   @Test
   public void chickenVsChicken() {
-    List<Integer> randomRankedLocationList = tictactoe.ChickenPlayerUtils_Laursen.getRandomLocationList(this.ticTacToeBoard_Laursen);
-    tictactoe.Player randomChicken = new DeterministicPlayerImpl_Laursen(randomRankedLocationList);
+    List<Integer> randomRankedLocationList = tictactoes.ChickenPlayerUtils_Laursen.getRandomLocationList(this.ticTacToeBoard_Laursen);
+    tictactoes.Player randomChicken = new DeterministicPlayerImpl_Laursen(randomRankedLocationList);
     List<Integer> terribleRankedLocationList = Arrays.asList(1, 5, 7, 3, 2, 6, 8, 0, 4);
-    tictactoe.Player terribleChicken = new DeterministicPlayerImpl_Laursen(terribleRankedLocationList);
-    tictactoe.Player[] playerOrder = new tictactoe.Player[]{randomChicken, terribleChicken};
-    int INDEX_OF_X = false;
-    boolean var7 = true;
+    tictactoes.Player terribleChicken = new DeterministicPlayerImpl_Laursen(terribleRankedLocationList);
+    tictactoes.Player[] playerOrder = new tictactoes.Player[]{randomChicken, terribleChicken};
+//    int INDEX_OF_X = false;
+//    boolean var7 = true;
 
     while(!this.ticTacToeBoard_Laursen.isGameOver()) {
-      int indexOfCurrentPlayer = this.ticTacToeBoard_Laursen.getTurn() == tictactoe.Mark.X ? 0 : 1;
-      tictactoe.Player currentPlayer = playerOrder[indexOfCurrentPlayer];
-      tictactoe.Move nextMove = currentPlayer.getNextMove(this.ticTacToeBoard_Laursen);
+      int indexOfCurrentPlayer = this.ticTacToeBoard_Laursen.getTurn() == tictactoes.Mark.X ? 0 : 1;
+      tictactoes.Player currentPlayer = playerOrder[indexOfCurrentPlayer];
+      tictactoes.Move nextMove = currentPlayer.getNextMove(this.ticTacToeBoard_Laursen);
       int nextMoveRow = nextMove.getRow();
       int nextMoveColumn = nextMove.getColumn();
       this.ticTacToeBoard_Laursen.setMark(nextMoveRow, nextMoveColumn);
     }
 
-    tictactoe.Mark TIE = null;
+    tictactoes.Mark TIE = null;
     if (this.ticTacToeBoard_Laursen.getWinner() != TIE) {
       System.out.println("Tie");
     } else {
-      tictactoe.Mark winner = this.ticTacToeBoard_Laursen.getWinner();
-      tictactoe.Player winningPlayer = winner == tictactoe.Mark.X ? playerOrder[0] : playerOrder[1];
+      tictactoes.Mark winner = this.ticTacToeBoard_Laursen.getWinner();
+      tictactoes.Player winningPlayer = winner == tictactoes.Mark.X ? playerOrder[0] : playerOrder[1];
       if (winningPlayer == randomChicken) {
         System.out.println("Random chicken is the winner");
       }
@@ -215,7 +215,7 @@ public class TicTacToeBoardImplTest_Laursen {
 
   @Test
   public void testRandomChicken2() {
-    List<Integer> randomRankedLocationList = tictactoe.ChickenPlayerUtils_Laursen.getRandomLocationList(this.ticTacToeBoard_Laursen);
+    List<Integer> randomRankedLocationList = tictactoes.ChickenPlayerUtils_Laursen.getRandomLocationList(this.ticTacToeBoard_Laursen);
     new DeterministicPlayerImpl_Laursen(randomRankedLocationList);
     this.ticTacToeBoard_Laursen.setMark(0, 2);
     this.ticTacToeBoard_Laursen.setMark(1, 1);
@@ -297,7 +297,7 @@ public class TicTacToeBoardImplTest_Laursen {
   @Test
   public void GetMark1() {
     int[] moveArray = new int[]{0, 1, 2, 3, 5, 4, 6, 8, 7};
-    tictactoe.Mark mark = tictactoe.Mark.X;
+    tictactoes.Mark mark = tictactoes.Mark.X;
     int[] var6 = moveArray;
     int var5 = moveArray.length;
 
@@ -306,24 +306,24 @@ public class TicTacToeBoardImplTest_Laursen {
       int row = i / 3;
       int column = i % 3;
       this.ticTacToeBoard_Laursen.setMark(row, column);
-      mark = tictactoe.Mark.values()[(mark.ordinal() + 1) % 2];
+      mark = tictactoes.Mark.values()[(mark.ordinal() + 1) % 2];
     }
 
-    Assert.assertEquals(tictactoe.Mark.X, this.ticTacToeBoard_Laursen.getMark(0, 0));
-    Assert.assertEquals(tictactoe.Mark.O, this.ticTacToeBoard_Laursen.getMark(0, 1));
-    Assert.assertEquals(tictactoe.Mark.X, this.ticTacToeBoard_Laursen.getMark(0, 2));
-    Assert.assertEquals(tictactoe.Mark.O, this.ticTacToeBoard_Laursen.getMark(1, 0));
-    Assert.assertEquals(tictactoe.Mark.X, this.ticTacToeBoard_Laursen.getMark(1, 2));
-    Assert.assertEquals(tictactoe.Mark.O, this.ticTacToeBoard_Laursen.getMark(1, 1));
-    Assert.assertEquals(tictactoe.Mark.X, this.ticTacToeBoard_Laursen.getMark(2, 0));
-    Assert.assertEquals(tictactoe.Mark.O, this.ticTacToeBoard_Laursen.getMark(2, 2));
-    Assert.assertEquals(tictactoe.Mark.X, this.ticTacToeBoard_Laursen.getMark(2, 1));
+    Assert.assertEquals(tictactoes.Mark.X, this.ticTacToeBoard_Laursen.getMark(0, 0));
+    Assert.assertEquals(tictactoes.Mark.O, this.ticTacToeBoard_Laursen.getMark(0, 1));
+    Assert.assertEquals(tictactoes.Mark.X, this.ticTacToeBoard_Laursen.getMark(0, 2));
+    Assert.assertEquals(tictactoes.Mark.O, this.ticTacToeBoard_Laursen.getMark(1, 0));
+    Assert.assertEquals(tictactoes.Mark.X, this.ticTacToeBoard_Laursen.getMark(1, 2));
+    Assert.assertEquals(tictactoes.Mark.O, this.ticTacToeBoard_Laursen.getMark(1, 1));
+    Assert.assertEquals(tictactoes.Mark.X, this.ticTacToeBoard_Laursen.getMark(2, 0));
+    Assert.assertEquals(tictactoes.Mark.O, this.ticTacToeBoard_Laursen.getMark(2, 2));
+    Assert.assertEquals(tictactoes.Mark.X, this.ticTacToeBoard_Laursen.getMark(2, 1));
   }
 
   @Test
   public void GetMarkNegative() {
     int[] moveArray = new int[0];
-    tictactoe.Mark mark = tictactoe.Mark.X;
+    tictactoes.Mark mark = tictactoes.Mark.X;
     int[] var6 = moveArray;
     int var5 = moveArray.length;
 
@@ -332,7 +332,7 @@ public class TicTacToeBoardImplTest_Laursen {
       int row = i / 3;
       int column = i % 3;
       this.ticTacToeBoard_Laursen.setMark(row, column);
-      mark = tictactoe.Mark.values()[(mark.ordinal() + 1) % 2];
+      mark = tictactoes.Mark.values()[(mark.ordinal() + 1) % 2];
     }
 
     Assert.assertEquals((Object)null, this.ticTacToeBoard_Laursen.getMark(0, 0));
@@ -341,7 +341,7 @@ public class TicTacToeBoardImplTest_Laursen {
   @Test
   public void NoWinner2() {
     int[] moveArray = new int[]{0, 1, 2, 3, 4, -1, -1, -1, -1};
-    tictactoe.Mark mark = tictactoe.Mark.X;
+    tictactoes.Mark mark = tictactoes.Mark.X;
     int[] var6 = moveArray;
     int var5 = moveArray.length;
 
@@ -350,7 +350,7 @@ public class TicTacToeBoardImplTest_Laursen {
       int row = i / 3;
       int column = i % 3;
       this.ticTacToeBoard_Laursen.setMark(row, column);
-      mark = tictactoe.Mark.values()[(mark.ordinal() + 1) % 2];
+      mark = tictactoes.Mark.values()[(mark.ordinal() + 1) % 2];
     }
 
     Assert.assertFalse(this.ticTacToeBoard_Laursen.isGameOver());
@@ -359,7 +359,7 @@ public class TicTacToeBoardImplTest_Laursen {
   @Test
   public void GetMarkNull2() {
     int[] moveArray = new int[]{0, 1, 2, 3, 5, 4};
-    tictactoe.Mark mark = tictactoe.Mark.X;
+    tictactoes.Mark mark = tictactoes.Mark.X;
     int[] var6 = moveArray;
     int var5 = moveArray.length;
 
@@ -368,7 +368,7 @@ public class TicTacToeBoardImplTest_Laursen {
       int row = i / 3;
       int column = i % 3;
       this.ticTacToeBoard_Laursen.setMark(row, column);
-      mark = tictactoe.Mark.values()[(mark.ordinal() + 1) % 2];
+      mark = tictactoes.Mark.values()[(mark.ordinal() + 1) % 2];
     }
 
     Assert.assertEquals((Object)null, this.ticTacToeBoard_Laursen.getMark(2, 2));
@@ -379,7 +379,7 @@ public class TicTacToeBoardImplTest_Laursen {
   )
   public void GetMarkOOB() {
     int[] moveArray = new int[0];
-    tictactoe.Mark mark = tictactoe.Mark.X;
+    tictactoes.Mark mark = tictactoes.Mark.X;
     int[] var6 = moveArray;
     int var5 = moveArray.length;
 
@@ -388,7 +388,7 @@ public class TicTacToeBoardImplTest_Laursen {
       int row = i / 3;
       int column = i % 3;
       this.ticTacToeBoard_Laursen.setMark(row, column);
-      mark = tictactoe.Mark.values()[(mark.ordinal() + 1) % 2];
+      mark = tictactoes.Mark.values()[(mark.ordinal() + 1) % 2];
     }
 
     Assert.assertEquals((Object)null, this.ticTacToeBoard_Laursen.getMark(9, 9));
@@ -399,7 +399,7 @@ public class TicTacToeBoardImplTest_Laursen {
   )
   public void SetMarkTwice() {
     int[] moveArray = new int[]{0, 1, 2, 3, 5, 4, 6, 8, 7};
-    tictactoe.Mark mark = tictactoe.Mark.X;
+    tictactoes.Mark mark = tictactoes.Mark.X;
     int[] var6 = moveArray;
     int var5 = moveArray.length;
 
@@ -409,7 +409,7 @@ public class TicTacToeBoardImplTest_Laursen {
       int column = i % 3;
       this.ticTacToeBoard_Laursen.setMark(row, column);
       this.ticTacToeBoard_Laursen.setMark(row, column);
-      mark = tictactoe.Mark.values()[(mark.ordinal() + 1) % 2];
+      mark = tictactoes.Mark.values()[(mark.ordinal() + 1) % 2];
     }
 
   }
@@ -432,8 +432,8 @@ public class TicTacToeBoardImplTest_Laursen {
   @Test
   public void testTargetMethod() {
     int[] moveArray = new int[]{0, 1, 2, 7, 5, 3, 6, 8, 4};
-    Assert.assertEquals(5L, (long) tictactoe.TicTacToeBoardImpl_Laursen.getSmallestIndex(moveArray, 3));
-    Assert.assertEquals(-1L, (long) tictactoe.TicTacToeBoardImpl_Laursen.getSmallestIndex(moveArray, 9));
+    Assert.assertEquals(5L, (long) tictactoes.TicTacToeBoardImpl_Laursen.getSmallestIndex(moveArray, 3));
+    Assert.assertEquals(-1L, (long) tictactoes.TicTacToeBoardImpl_Laursen.getSmallestIndex(moveArray, 9));
   }
 
   @Test(
@@ -441,7 +441,7 @@ public class TicTacToeBoardImplTest_Laursen {
   )
   public void testTargetMethod2() {
     int[] moveArray = new int[]{0, 1, 2, 7, 5, 3, 6, 8, 4, 9, 6, 1};
-    tictactoe.TicTacToeBoardImpl_Laursen.getSmallestIndex(moveArray, 6);
+    tictactoes.TicTacToeBoardImpl_Laursen.getSmallestIndex(moveArray, 6);
   }
 
   @Test
@@ -481,7 +481,7 @@ public class TicTacToeBoardImplTest_Laursen {
     System.out.println("Board:");
     this.getPrettyString(this.ticTacToeBoard_Laursen);
     Assert.assertTrue(this.ticTacToeBoard_Laursen.isGameOver());
-    Assert.assertEquals(tictactoe.Mark.X, this.ticTacToeBoard_Laursen.getWinner());
+    Assert.assertEquals(tictactoes.Mark.X, this.ticTacToeBoard_Laursen.getWinner());
   }
 
   @Test(
@@ -502,7 +502,7 @@ public class TicTacToeBoardImplTest_Laursen {
     System.out.println("Board:");
     this.getPrettyString(this.ticTacToeBoard_Laursen);
     Assert.assertTrue(this.ticTacToeBoard_Laursen.isGameOver());
-    Assert.assertEquals(tictactoe.Mark.O, this.ticTacToeBoard_Laursen.getWinner());
+    Assert.assertEquals(tictactoes.Mark.O, this.ticTacToeBoard_Laursen.getWinner());
   }
 
   @Test
@@ -521,7 +521,7 @@ public class TicTacToeBoardImplTest_Laursen {
     System.out.println("Board:");
     this.getPrettyString(this.ticTacToeBoard_Laursen);
     Assert.assertTrue(this.ticTacToeBoard_Laursen.isGameOver());
-    Assert.assertEquals(tictactoe.Mark.X, this.ticTacToeBoard_Laursen.getWinner());
+    Assert.assertEquals(tictactoes.Mark.X, this.ticTacToeBoard_Laursen.getWinner());
   }
 
   @Test(
@@ -542,7 +542,7 @@ public class TicTacToeBoardImplTest_Laursen {
     System.out.println("Board:");
     this.getPrettyString(this.ticTacToeBoard_Laursen);
     Assert.assertTrue(this.ticTacToeBoard_Laursen.isGameOver());
-    Assert.assertEquals(tictactoe.Mark.X, this.ticTacToeBoard_Laursen.getWinner());
+    Assert.assertEquals(tictactoes.Mark.X, this.ticTacToeBoard_Laursen.getWinner());
   }
 
   @Test
@@ -582,7 +582,7 @@ public class TicTacToeBoardImplTest_Laursen {
     System.out.println("Board:");
     this.getPrettyString(this.ticTacToeBoard_Laursen);
     Assert.assertTrue(this.ticTacToeBoard_Laursen.isGameOver());
-    Assert.assertEquals(tictactoe.Mark.X, this.ticTacToeBoard_Laursen.getWinner());
+    Assert.assertEquals(tictactoes.Mark.X, this.ticTacToeBoard_Laursen.getWinner());
   }
 
   @Test(
@@ -678,7 +678,7 @@ public class TicTacToeBoardImplTest_Laursen {
 
     this.getPrettyString(this.ticTacToeBoard_Laursen);
     Assert.assertTrue(this.ticTacToeBoard_Laursen.isGameOver());
-    Assert.assertEquals(tictactoe.Mark.X, this.ticTacToeBoard_Laursen.getWinner());
+    Assert.assertEquals(tictactoes.Mark.X, this.ticTacToeBoard_Laursen.getWinner());
   }
 
   @Test
@@ -695,7 +695,7 @@ public class TicTacToeBoardImplTest_Laursen {
     }
 
     this.getPrettyString(this.ticTacToeBoard_Laursen);
-    Assert.assertEquals(tictactoe.Mark.X, this.ticTacToeBoard_Laursen.getTurn());
+    Assert.assertEquals(tictactoes.Mark.X, this.ticTacToeBoard_Laursen.getTurn());
     Assert.assertEquals(false, this.ticTacToeBoard_Laursen.isGameOver());
     Assert.assertEquals((Object)null, this.ticTacToeBoard_Laursen.getWinner());
   }
@@ -711,7 +711,7 @@ public class TicTacToeBoardImplTest_Laursen {
       }
     }
 
-    Assert.assertEquals(tictactoe.Mark.X, this.ticTacToeBoard_Laursen.getTurn());
+    Assert.assertEquals(tictactoes.Mark.X, this.ticTacToeBoard_Laursen.getTurn());
     Assert.assertEquals(false, this.ticTacToeBoard_Laursen.isGameOver());
     Assert.assertEquals((Object)null, this.ticTacToeBoard_Laursen.getWinner());
   }
@@ -732,7 +732,7 @@ public class TicTacToeBoardImplTest_Laursen {
     }
 
     this.getPrettyString(this.ticTacToeBoard_Laursen);
-    Assert.assertEquals(tictactoe.Mark.X, this.ticTacToeBoard_Laursen.getTurn());
+    Assert.assertEquals(tictactoes.Mark.X, this.ticTacToeBoard_Laursen.getTurn());
     Assert.assertEquals(false, this.ticTacToeBoard_Laursen.isGameOver());
     Assert.assertEquals((Object)null, this.ticTacToeBoard_Laursen.getWinner());
   }
@@ -748,7 +748,7 @@ public class TicTacToeBoardImplTest_Laursen {
     }
 
     this.getPrettyString(this.ticTacToeBoard_Laursen);
-    Assert.assertEquals(tictactoe.Mark.X, this.ticTacToeBoard_Laursen.getTurn());
+    Assert.assertEquals(tictactoes.Mark.X, this.ticTacToeBoard_Laursen.getTurn());
     Assert.assertEquals(false, this.ticTacToeBoard_Laursen.isGameOver());
     Assert.assertEquals((Object)null, this.ticTacToeBoard_Laursen.getWinner());
   }
@@ -769,7 +769,7 @@ public class TicTacToeBoardImplTest_Laursen {
     }
 
     this.getPrettyString(this.ticTacToeBoard_Laursen);
-    Assert.assertEquals(tictactoe.Mark.X, this.ticTacToeBoard_Laursen.getTurn());
+    Assert.assertEquals(tictactoes.Mark.X, this.ticTacToeBoard_Laursen.getTurn());
     Assert.assertEquals(false, this.ticTacToeBoard_Laursen.isGameOver());
     Assert.assertEquals((Object)null, this.ticTacToeBoard_Laursen.getWinner());
   }
@@ -811,7 +811,7 @@ public class TicTacToeBoardImplTest_Laursen {
 
     this.getPrettyString(this.ticTacToeBoard_Laursen);
     Assert.assertTrue(this.ticTacToeBoard_Laursen.isGameOver());
-    Assert.assertEquals(tictactoe.Mark.X, this.ticTacToeBoard_Laursen.getWinner());
+    Assert.assertEquals(tictactoes.Mark.X, this.ticTacToeBoard_Laursen.getWinner());
     Assert.assertEquals((Object)null, this.ticTacToeBoard_Laursen.getTurn());
   }
 
@@ -872,9 +872,9 @@ public class TicTacToeBoardImplTest_Laursen {
 
   @Test
   public void oneSymbolTest() {
-    int ROW = false;
-    int COLUMN = true;
-    tictactoe.Mark MARK = tictactoe.Mark.X;
+//    int ROW = false;
+//    int COLUMN = true;
+    tictactoes.Mark MARK = tictactoes.Mark.X;
     this.ticTacToeBoard_Laursen.setMark(0, 2);
 
     for(int i = 0; i < 3; ++i) {
@@ -891,8 +891,8 @@ public class TicTacToeBoardImplTest_Laursen {
       expected = AssertionError.class
   )
   public void setMark_OutOfRange() {
-    int ROW1 = true;
-    int COLUMN1 = true;
+//    int ROW1 = true;
+//    int COLUMN1 = true;
     this.ticTacToeBoard_Laursen.setMark(4, 4);
   }
 }
